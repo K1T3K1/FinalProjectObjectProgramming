@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="BlankWindow1.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.UI.Xaml" Version="2.7.1" />
+    <PackageReference Include="PInvoke.User32" Version="0.7.104" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="BlankWindow1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+	
+	<ItemGroup>
+	<AppxPackageRegistration Include="$(NuGetPackageRoot)\microsoft.ui.xaml\$(MicrosoftUIXamlAppxVersion)\tools\AppX\x64\Release\Microsoft.UI.Xaml.2.1.appx">
+		<Configuration>Development</Configuration>
+		<Architecture>x64</Architecture>
+		<Version>$(MicrosoftUIXamlAppxVersion)</Version>
+		<Publisher>'CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US'</Publisher>
+	</AppxPackageRegistration>
+	</ItemGroup>
+
+</Project>
